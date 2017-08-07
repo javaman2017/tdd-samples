@@ -1,4 +1,4 @@
-package practicalunittesting.interfaces;
+package unittesting.interfaces;
 
 import java.math.BigDecimal;
 
