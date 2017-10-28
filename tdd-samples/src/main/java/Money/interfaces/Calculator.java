@@ -1,4 +1,4 @@
-package unittesting.interfaces;
+package Money.interfaces;
 
 import java.math.BigDecimal;
 

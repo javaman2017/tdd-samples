@@ -1,10 +1,8 @@
-package unittesting;
+package Money;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-
-import unittesting.Money;
 
 public class MoneyTest {
 

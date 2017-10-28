@@ -1,13 +1,12 @@
 package password;
 
+import junitparams.JUnitParamsRunner;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 
-import junitparams.JUnitParamsRunner;
-
-@RunWith(JUnitParamsRunner.class)
+@RunWith(value = JUnitParamsRunner.class)
 public class PasswordValidatorIAETest {
     
     @Rule
@@ -22,12 +21,12 @@ public class PasswordValidatorIAETest {
         PasswordValidator validator = new PasswordValidator();
         validator.validate("abc");
     }
-    
+
     @Test
     public void passwordsShouldContainAtLeast3Digits() {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Passwords must contain at least 3 digits");
-        
+
         PasswordValidator validator = new PasswordValidator();
         validator.validate("abcdefg1");
     }

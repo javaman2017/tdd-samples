@@ -1,4 +1,4 @@
-package unittesting;
+package Money;
 
 public class Money {
 	private final int amount;
