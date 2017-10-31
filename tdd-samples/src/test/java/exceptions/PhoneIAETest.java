@@ -2,29 +2,27 @@ package exceptions;
 
 import org.junit.Test;
 
+import static com.googlecode.catchexception.CatchException.catchException;
+import static com.googlecode.catchexception.CatchException.caughtException;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.assertTrue;
 
 public class PhoneIAETest {
     private Phone phone = new Phone();
 
     @Test
     public void shouldThrowIAEForEmptyNumber(){
-        try{
-            phone.setNumber("");
-            fail("Should have thrown an illegalArgumentException");
-        } catch (IllegalArgumentException iae){
-            assertEquals("number cannot be null or empty",iae.getMessage());
-        }
+        catchException(phone).setNumber(null);
+
+        assertTrue(caughtException() instanceof  IllegalArgumentException);
+        assertEquals("number cannot be null or empty", caughtException().getMessage());
     }
 
     @Test
     public void shouldThrowIAEForPlusPrefixedNumber(){
-        try{
-            phone.setNumber("+123456789");
-            fail("Should have thrown an illegalArgumentException");
-        } catch (IllegalArgumentException iae){
-            assertEquals("numbers cannot start with + number:[+123456789]",iae.getMessage());
-        }
+        catchException(phone).setNumber("+123");
+
+        assertTrue(caughtException() instanceof  IllegalArgumentException);
+        assertEquals("numbers cannot start with + number:[+123]", caughtException().getMessage());
     }
 }
